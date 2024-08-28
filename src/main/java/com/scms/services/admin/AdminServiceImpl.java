@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.scms.entities.Admin;
+import com.scms.entities.Student;
 import com.scms.entities.User;
 import com.scms.enums.UserRole;
 import com.scms.repository.AdminRepository;
@@ -38,5 +39,6 @@ public class AdminServiceImpl implements AdminService{
 		admin.setPost_School("Admin");
 		adminRepository.save(admin);
 	}
-
+	
+	
 }

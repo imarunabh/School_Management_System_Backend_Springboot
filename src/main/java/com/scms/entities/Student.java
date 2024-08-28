@@ -23,6 +23,8 @@ public class Student {
 	@Column(unique = true)
 	private String email;
 	
+	private String password;
+	
 	private String name;
 	
 	private String S_Class;
@@ -36,6 +38,8 @@ public class Student {
 	private Date dob;
 	
 	private int Age;
+	
+	private String Address;
 	
 	private UserRole role=UserRole.STUDENT;
 
