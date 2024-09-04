@@ -51,7 +51,7 @@ public class AuthenticationContoller {
 			throw new BadCredentialsException("Invalid username or Password");
 		}
 		catch(DisabledException e) {
-			response.sendError(HttpServletResponse.SC_NOT_FOUND,"User doesnot exist");
+			response.sendError(HttpServletResponse.SC_NOT_FOUND,"User does not exist");
 		}
 		
 		final UserDetails userDetails=  userDetailsServie.loadUserByUsername(authenticationRequest.getEmail());

@@ -1,6 +1,7 @@
 package com.scms.services.teacher;
 
 import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -42,6 +43,15 @@ public class TeacherServiceImpl implements TeacherService{
 		teacher.setDob(new Date());
 		teacher.setSalary(100000L);
 		teacherRepository.save(teacher);
+	}
+
+	@Override
+	public Teacher getTeacherById(Long Id) {
+		Optional<Teacher> optTeacher = teacherRepository.findById(Id);
+		if(optTeacher.isPresent()) {
+			return optTeacher.get();
+		}
+		return null;
 	}
 
 }

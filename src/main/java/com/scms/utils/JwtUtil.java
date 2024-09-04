@@ -18,7 +18,7 @@ public class JwtUtil {
 	
 	public static final String SECRET="a62cc54bdaf76aade22d7516eb4cf3eae28525c4d6ab7c27b172cbb64dfb345b";
 	
-	public boolean validateToken(String token,UserDetails userDetails) {
+	public Boolean validateToken(String token,UserDetails userDetails) {
 		final String userName = extractUsernName(token);
 		return (userName.equals(userDetails.getUsername()) && !isTokenExpired(token));
 	}

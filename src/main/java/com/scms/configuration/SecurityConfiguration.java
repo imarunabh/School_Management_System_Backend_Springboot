@@ -1,5 +1,6 @@
 package com.scms.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,9 +11,15 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.scms.filters.JwtRequestFilter;
 
 @Configuration
 public class SecurityConfiguration {
+	
+	@Autowired
+	private JwtRequestFilter jwtRequestFilter;
 	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
@@ -20,7 +27,9 @@ public class SecurityConfiguration {
 				.csrf(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(req->req.requestMatchers("/authenticate").permitAll()
 						.requestMatchers("/api/**").authenticated())
-				.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)).build();	
+				.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
+				.build();	
 	}
 	
 	@Bean
