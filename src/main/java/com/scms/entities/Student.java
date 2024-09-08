@@ -43,4 +43,15 @@ public class Student {
 	
 	private UserRole role=UserRole.STUDENT;
 
+	@Override
+	public String toString() {
+		return "Student [Id=" + Id + ", email=" + email + ", password=" + password + ", name=" + name + ", S_Class="
+				+ S_Class + ", BloodGroup=" + BloodGroup + ", FatherName=" + FatherName + ", MotherName=" + MotherName
+				+ ", dob=" + dob + ", Age=" + Age + ", Address=" + Address + ", role=" + role + "]";
+	}
+	
+	
+	
+	
+
 }
