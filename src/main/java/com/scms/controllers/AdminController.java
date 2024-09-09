@@ -41,15 +41,6 @@ public class AdminController{
     	 return ResponseEntity.notFound().build();
     }
 	
-	@PostMapping("/student")
-	public ResponseEntity<?> saveStudent(@RequestBody Student student){
-		Student createdStudent = adminServiceImpl.postStudent(student);
-		if(createdStudent==null) {
-			return new ResponseEntity<>("Something went wrong",HttpStatus.BAD_REQUEST);
-		}
-		return ResponseEntity.status(HttpStatus.CREATED).body(createdStudent);
-		
-		
-	}
+	
 
 }

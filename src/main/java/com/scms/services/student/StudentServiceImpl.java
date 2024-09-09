@@ -1,6 +1,7 @@
 package com.scms.services.student;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -44,6 +45,12 @@ public class StudentServiceImpl implements StudentService{
 		student.setMotherName("StudentMother");
 		student.setS_Class("5");
 		studentRepository.save(student);
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		List<Student> students = studentRepository.findAll();
+		return students;
 	}
 
 
