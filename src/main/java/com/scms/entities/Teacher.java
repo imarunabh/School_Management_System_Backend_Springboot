@@ -38,5 +38,7 @@ public class Teacher {
 	private String bloodGroup;
 	
 	private UserRole  role=UserRole.TEACHER;
+	
+	private String image;
 
 }

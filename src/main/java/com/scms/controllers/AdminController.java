@@ -16,6 +16,7 @@ import com.scms.entities.Admin;
 import com.scms.entities.Student;
 import com.scms.entities.User;
 import com.scms.services.admin.AdminServiceImpl;
+import com.scms.services.cloudinary.CloudinaryImageServiceImpl;
 import com.scms.services.user.UserServiceImpl;
 
 @RestController
@@ -27,6 +28,8 @@ public class AdminController{
 	
 	@Autowired
 	private UserServiceImpl userServiceImpl;
+	
+	
 	
 	@GetMapping("/{adminId}")
     public ResponseEntity<Admin> getAdminById(@PathVariable Long adminId){

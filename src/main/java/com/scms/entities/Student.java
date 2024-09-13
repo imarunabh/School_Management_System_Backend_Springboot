@@ -42,13 +42,18 @@ public class Student {
 	private String Address;
 	
 	private UserRole role=UserRole.STUDENT;
+	
+	private String image;
 
 	@Override
 	public String toString() {
 		return "Student [Id=" + Id + ", email=" + email + ", password=" + password + ", name=" + name + ", S_Class="
 				+ S_Class + ", BloodGroup=" + BloodGroup + ", FatherName=" + FatherName + ", MotherName=" + MotherName
-				+ ", dob=" + dob + ", Age=" + Age + ", Address=" + Address + ", role=" + role + "]";
+				+ ", dob=" + dob + ", Age=" + Age + ", Address=" + Address + ", role=" + role + ", image=" + image
+				+ "]";
 	}
+
+	
 	
 	
 	

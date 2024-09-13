@@ -80,6 +80,7 @@ public class AdminServiceImpl implements AdminService{
 		newstudent.setS_Class(student.getS_Class());
 		newstudent.setPassword(new BCryptPasswordEncoder().encode(student.getPassword()));
 		newstudent.setAge(calculateAge(simpleDateFormat.format(student.getDob())));
+		newstudent.setImage(student.getImage());
 		studentRepository.save(newstudent);
 		
 		User user = new User();
