@@ -2,6 +2,8 @@ package com.scms.entities;
 
 import java.util.Date;
 
+import com.scms.enums.AttendaceStatus;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +25,6 @@ public class Attendance{
 	
 	private Date date;
 	
-	private Attendance att;
+	private AttendaceStatus att;
 
 }

@@ -1,6 +1,6 @@
 package com.scms.enums;
 
-public enum Attendace {
+public enum AttendaceStatus {
 	PRESENT,ABSENT
 
 }

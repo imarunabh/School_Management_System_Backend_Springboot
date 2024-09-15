@@ -1,5 +1,6 @@
 package com.scms.controllers;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -17,10 +18,13 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.scms.entities.Attendance;
 import com.scms.entities.Student;
 import com.scms.entities.User;
+import com.scms.enums.AttendaceStatus;
 import com.scms.repository.StudentRepository;
 import com.scms.services.admin.AdminServiceImpl;
+import com.scms.services.attendance.AttendanceServiceImpl;
 import com.scms.services.cloudinary.CloudinaryImageServiceImpl;
 import com.scms.services.student.StudentServiceImpl;
 import com.scms.services.user.UserServiceImpl;
@@ -43,6 +47,9 @@ public class StudentController {
 	
 	@Autowired
 	private CloudinaryImageServiceImpl cloudinaryImageServiceImpl;
+	
+	@Autowired
+	private AttendanceServiceImpl attendanceServiceImpl;
 	
 	@GetMapping("/{studentId}")
 	public ResponseEntity<Student> getStudentById(@PathVariable Long studentId){
@@ -81,6 +88,24 @@ public class StudentController {
 		return ResponseEntity.ok(allStudents);
 
 	}
+	
+	@PostMapping("/get-attendance-email")
+	public ResponseEntity<List<Attendance>> findAttendanceByEmail(@RequestBody String email){
+		List<Attendance> attendance = attendanceServiceImpl.getAttendance(email);
+		return ResponseEntity.ok(attendance);
+		
+	}
+	
+	@PostMapping("/mark-attendance")
+	public ResponseEntity<?> markAttendance(@RequestBody String email){
+		System.out.println("It is working");
+		AttendaceStatus markAttendance = attendanceServiceImpl.markAttendance(email);
+		System.out.println(markAttendance);
+		return ResponseEntity.ok(markAttendance);
+		
+	}
+	
+	
 	
 	
 
