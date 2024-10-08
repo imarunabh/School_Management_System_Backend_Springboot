@@ -91,7 +91,9 @@ public class StudentController {
 	
 	@PostMapping("/get-attendance-email")
 	public ResponseEntity<List<Attendance>> findAttendanceByEmail(@RequestBody String email){
+		System.out.println(email);
 		List<Attendance> attendance = attendanceServiceImpl.getAttendance(email);
+		System.out.println(attendance);
 		return ResponseEntity.ok(attendance);
 		
 	}
